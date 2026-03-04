@@ -1,4 +1,11 @@
 from dataclasses import dataclass
+from enum import Enum
+
+
+class EstadoVehiculo(Enum):
+    DISPONIBLE = "Disponible"
+    RESERVADO = "Reservado"
+    VENDIDO = "Vendido"
 
 @dataclass
 class Vehiculo:
@@ -7,4 +14,5 @@ class Vehiculo:
     modelo: str
     ano: int
     precio: float
-    disponible: bool = True
+    kilometraje: int
+    estado: EstadoVehiculo = EstadoVehiculo.DISPONIBLE
