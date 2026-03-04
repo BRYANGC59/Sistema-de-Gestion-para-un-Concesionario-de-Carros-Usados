@@ -1,0 +1,3 @@
+class VehiculoNoEncontradoError(Exception):
+    pass
+
