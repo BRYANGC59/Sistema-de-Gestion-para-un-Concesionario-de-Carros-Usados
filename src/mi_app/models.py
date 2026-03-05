@@ -5,7 +5,7 @@ from enum import Enum
 class EstadoVehiculo(Enum):
     DISPONIBLE = "Disponible"
     RESERVADO = "Reservado"
-    VENDIDO = "Vendido"
+    VENDIDO = "Vendida"
 
 @dataclass
 class Vehiculo:
