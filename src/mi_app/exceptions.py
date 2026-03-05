@@ -3,3 +3,12 @@ class VehiculoNoEncontradoError(Exception):
 
 class VehiculoVendidoError(Exception):
     pass
+
+class PrecioInvalidoError(Exception):
+    pass
+
+class IdDuplicadoError(Exception):
+    pass
+
+class VehiculoYaVendidoError(Exception):
+    pass
