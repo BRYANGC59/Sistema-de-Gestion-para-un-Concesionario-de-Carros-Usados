@@ -27,19 +27,24 @@ Para ejecutar este proyecto utilizamos **`uv`**. Sigue estos pasos:
 **Manual de Uso de la CLI**
 
 1. Agregar un vehículo nuevo:
-  uv run python main.py agregar --id 1 --marca "Chevrolet" --modelo "Onix" --anio 2023 --kilometraje 15000 --precio 45000000
 
-2. Listar los vehiculos disponibles:
-  uv run python main.py listar
+uv run python main.py agregar --id 1 --marca "Chevrolet" --modelo "Onix" --anio 2023 --kilometraje 15000 --precio 45000000
 
-3. Buscar un carro especifico:
-   uv run python main.py buscar --id 2
+3. Listar los vehiculos disponibles:
 
-4. Actualizar precio:
-   uv run python main.py actualizar-precio --id 1 --nuevo-precio 43500000
+uv run python main.py listar
 
-5. Registrar una venta:
-   uv run python main.py vender --id 1
+4. Buscar un carro especifico:
+
+uv run python main.py buscar --id 2
+
+5. Actualizar precio:
+
+uv run python main.py actualizar-precio --id 1 --nuevo-precio 43500000
+
+6. Registrar una venta:
+
+uv run python main.py vender --id 1
 
 **INSTRUCCION PARA PRUEBAS UNITARIAS**
 
