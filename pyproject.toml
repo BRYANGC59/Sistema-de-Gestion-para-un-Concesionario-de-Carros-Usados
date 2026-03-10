@@ -1,0 +1,11 @@
+[project]
+name = "sistema-de-gestion-para-un-concesionario-de-carros-usados"
+version = "0.1.0"
+description = "Add your description here"
+readme = "README.md"
+requires-python = ">=3.12"
+dependencies = [
+    "mkdocs>=1.6.1",
+    "mkdocstrings[python]>=1.0.3",
+    "pytest>=9.0.2",
+]
