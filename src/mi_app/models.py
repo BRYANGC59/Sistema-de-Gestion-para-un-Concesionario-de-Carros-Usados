@@ -8,11 +8,11 @@ class EstadoVehiculo(Enum):
     VENDIDO = "Vendida"
 
 @dataclass
-class Vehiculo:
+class VehiculoUsado:
     id_vehiculo: int
     marca: str
     modelo: str
-    ano: int
+    anio: int
     precio: float
     kilometraje: int
     estado: EstadoVehiculo = EstadoVehiculo.DISPONIBLE
