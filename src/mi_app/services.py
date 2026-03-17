@@ -7,8 +7,6 @@ from src.mi_app.exceptions import (
     PrecioInvalidoError,
     IdDuplicadoError
 )
-
-
 class InventarioService:
     def __init__(self):
         self._datos_crudos = cargar_datos()
