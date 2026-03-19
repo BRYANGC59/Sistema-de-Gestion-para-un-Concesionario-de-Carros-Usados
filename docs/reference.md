@@ -1,4 +1,4 @@
-# 📚 Referencia Técnica
+# Referencia Técnica
 
 A continuación se detalla la documentación autogenerada directamente desde el código fuente del sistema.
 
