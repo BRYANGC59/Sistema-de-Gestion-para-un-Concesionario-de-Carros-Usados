@@ -1,0 +1,27 @@
+site_name: Gestión de Concesionario
+site_description: Documentación oficial del sistema de gestión de carros usados.
+theme:
+  name: material
+  palette:
+    primary: blue
+    accent: deep orange
+  features:
+    - content.code.copy
+    - content.tabs.link
+    - navigation.tabs
+
+plugins:
+  - search
+  - mkdocstrings:
+      handlers:
+        python:
+          paths: [src]
+
+nav:
+  - Inicio: index.md
+  - Empezando: getting-started.md
+  - Guía de Usuario:
+    - Comandos CLI: user-guide/commands.md
+    - Persistencia de Datos: user-guide/persistence.md
+  - Arquitectura: architecture.md
+  - Referencia de Código: reference.md
