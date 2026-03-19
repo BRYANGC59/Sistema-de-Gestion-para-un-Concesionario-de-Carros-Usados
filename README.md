@@ -13,17 +13,6 @@ Con esta aplicación, un usuario puede realizar las cuatro operaciones básicas 
 
 Todo esto está construido asegurando que los datos se guarden de forma segura en un archivo local, manteniendo el historial del concesionario organizado.
 
-## Guía de Instalación:
-
-Para ejecutar este proyecto utilizamos **`uv`**. Sigue estos pasos:
-
-1. **Clona este repositorio**:
-   ```bash
-   git clone <URL_DE_TU_REPOSITORIO>
-   cd nombre-del-proyecto
-2. **Instala las dependencias** y sincroniza el entorno usando uv:
-   uv sync
-
 **Manual de Uso de la CLI**
 
 1. Agregar un vehículo nuevo:
