@@ -25,6 +25,3 @@ jobs:
 
       - name: Check code quality with radon
         run: uv run radon cc src -a
-
-      - name: check code quality with radon
-        run: uv run radon cc src -a
