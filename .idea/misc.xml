@@ -1,7 +1,4 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
-  <component name="Black">
-    <option name="sdkName" value="uv (blocky-code-challenge)" />
-  </component>
-  <component name="ProjectRootManager" version="2" project-jdk-name="Python 3.12 (Sistema-de-Gestion-para-un-Concesionario-de-Carros-Usados)" project-jdk-type="Python SDK" />
+  <component name="ProjectRootManager" version="2" project-jdk-name="Python 3.11" project-jdk-type="Python SDK" />
 </project>

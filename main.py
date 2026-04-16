@@ -1,12 +1,12 @@
 from fastapi import FastAPI, Depends, HTTPException
 from sqlmodel import Session, select, SQLModel, create_engine
 from typing import List
-
-
 from src.mi_app.models.vehiculo import Vehiculo, EstadoVehiculo
+from src.mi_app.models.cliente import Cliente
+from src.mi_app.models.venta import Venta
 
 
-DATABASE_URL = "postgresql://postgres:brymardey123.@db.qqhkitoofvgvtjwmymqs.supabase.co:5432/postgres"
+DATABASE_URL = "postgresql://postgres.qqhkitoofvgvtjwmymqs:brymardey123@aws-1-us-east-2.pooler.supabase.com:5432/postgres"
 engine = create_engine(DATABASE_URL)
 
 # 2. Inicializar FastAPI
