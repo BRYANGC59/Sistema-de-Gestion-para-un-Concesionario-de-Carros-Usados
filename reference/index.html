@@ -1,0 +1,2073 @@
+
+<!doctype html>
+<html lang="en" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      
+        <meta name="description" content="Documentación oficial del sistema de gestión de carros usados.">
+      
+      
+      
+      
+        <link rel="prev" href="../architecture/">
+      
+      
+      
+        
+      
+      
+      <link rel="icon" href="../assets/images/favicon.png">
+      <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.7.5">
+    
+    
+      
+        <title>Referencia de Código - Gestión de Concesionario</title>
+      
+    
+    
+      <link rel="stylesheet" href="../assets/stylesheets/main.484c7ddc.min.css">
+      
+        
+        <link rel="stylesheet" href="../assets/stylesheets/palette.ab4e12ef.min.css">
+      
+      
+
+
+    
+    
+      
+    
+    
+      
+        
+        
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,300i,400,400i,700,700i%7CRoboto+Mono:400,400i,700,700i&display=fallback">
+        <style>:root{--md-text-font:"Roboto";--md-code-font:"Roboto Mono"}</style>
+      
+    
+    
+      <link rel="stylesheet" href="../assets/_mkdocstrings.css">
+    
+    <script>__md_scope=new URL("..",location),__md_hash=e=>[...e].reduce(((e,_)=>(e<<5)-e+_.charCodeAt(0)),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    
+      
+
+    
+    
+  </head>
+  
+  
+    
+    
+    
+    
+    
+    <body dir="ltr" data-md-color-scheme="default" data-md-color-primary="blue" data-md-color-accent="deep-orange">
+  
+    
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" for="__drawer"></label>
+    <div data-md-component="skip">
+      
+        
+        <a href="#referencia-tecnica" class="md-skip">
+          Skip to content
+        </a>
+      
+    </div>
+    <div data-md-component="announce">
+      
+    </div>
+    
+    
+      
+
+<header class="md-header" data-md-component="header">
+  <nav class="md-header__inner md-grid" aria-label="Header">
+    <a href=".." title="Gestión de Concesionario" class="md-header__button md-logo" aria-label="Gestión de Concesionario" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54"/></svg>
+
+    </a>
+    <label class="md-header__button md-icon" for="__drawer">
+      
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3zm0 5h18v2H3zm0 5h18v2H3z"/></svg>
+    </label>
+    <div class="md-header__title" data-md-component="header-title">
+      <div class="md-header__ellipsis">
+        <div class="md-header__topic">
+          <span class="md-ellipsis">
+            Gestión de Concesionario
+          </span>
+        </div>
+        <div class="md-header__topic" data-md-component="header-topic">
+          <span class="md-ellipsis">
+            
+              Referencia de Código
+            
+          </span>
+        </div>
+      </div>
+    </div>
+    
+      
+    
+    
+    
+    
+      
+      
+        <label class="md-header__button md-icon" for="__search">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        </label>
+        <div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="__search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" name="query" aria-label="Search" placeholder="Search" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" required>
+      <label class="md-search__icon md-icon" for="__search">
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11z"/></svg>
+      </label>
+      <nav class="md-search__options" aria-label="Search">
+        
+        <button type="reset" class="md-search__icon md-icon" title="Clear" aria-label="Clear" tabindex="-1">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12z"/></svg>
+        </button>
+      </nav>
+      
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" tabindex="0" data-md-scrollfix>
+        <div class="md-search-result" data-md-component="search-result">
+          <div class="md-search-result__meta">
+            Initializing search
+          </div>
+          <ol class="md-search-result__list" role="presentation"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+      
+    
+    
+  </nav>
+  
+</header>
+    
+    <div class="md-container" data-md-component="container">
+      
+      
+        
+          
+            
+<nav class="md-tabs" aria-label="Tabs" data-md-component="tabs">
+  <div class="md-grid">
+    <ul class="md-tabs__list">
+      
+        
+  
+  
+  
+  
+    <li class="md-tabs__item">
+      <a href=".." class="md-tabs__link">
+        
+  
+  
+    
+  
+  Inicio
+
+      </a>
+    </li>
+  
+
+      
+        
+  
+  
+  
+  
+    <li class="md-tabs__item">
+      <a href="../getting-started/" class="md-tabs__link">
+        
+  
+  
+    
+  
+  Empezando
+
+      </a>
+    </li>
+  
+
+      
+        
+  
+  
+  
+  
+    
+    
+      <li class="md-tabs__item">
+        <a href="../user-guide/commands/" class="md-tabs__link">
+          
+  
+  
+  Guía de Usuario
+
+        </a>
+      </li>
+    
+  
+
+      
+        
+  
+  
+  
+  
+    <li class="md-tabs__item">
+      <a href="../architecture/" class="md-tabs__link">
+        
+  
+  
+    
+  
+  Arquitectura
+
+      </a>
+    </li>
+  
+
+      
+        
+  
+  
+  
+    
+  
+  
+    <li class="md-tabs__item md-tabs__item--active">
+      <a href="./" class="md-tabs__link">
+        
+  
+  
+    
+  
+  Referencia de Código
+
+      </a>
+    </li>
+  
+
+      
+    </ul>
+  </div>
+</nav>
+          
+        
+      
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          
+            
+              
+              <div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+
+  
+
+
+<nav class="md-nav md-nav--primary md-nav--lifted" aria-label="Navigation" data-md-level="0">
+  <label class="md-nav__title" for="__drawer">
+    <a href=".." title="Gestión de Concesionario" class="md-nav__button md-logo" aria-label="Gestión de Concesionario" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54"/></svg>
+
+    </a>
+    Gestión de Concesionario
+  </label>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href=".." class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Inicio
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../getting-started/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Empezando
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+      
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3" >
+        
+          
+          <label class="md-nav__link" for="__nav_3" id="__nav_3_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Guía de Usuario
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_3_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_3">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Guía de Usuario
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../user-guide/commands/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Comandos CLI
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../user-guide/persistence/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Persistencia de Datos
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../architecture/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Arquitectura
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+    
+  
+  
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
+      
+      
+        
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Referencia de Código
+  
+
+    
+  </span>
+  
+  
+
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="./" class="md-nav__link md-nav__link--active">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Referencia de Código
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#modelos-de-datos" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Modelos de Datos
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#src.mi_app.models.vehiculo" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        vehiculo
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#servicios-reglas-de-negocio" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Servicios (Reglas de Negocio)
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#src.mi_app.services" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        services
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#src.mi_app.services.InventarioService" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        InventarioService
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="InventarioService">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#src.mi_app.services.InventarioService.__init__" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        __init__
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#src.mi_app.services.InventarioService.agregar_vehiculo" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        agregar_vehiculo
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#src.mi_app.services.InventarioService.buscar_por_id" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        buscar_por_id
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#src.mi_app.services.InventarioService.listar_disponibles" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        listar_disponibles
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#excepciones" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Excepciones
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#src.mi_app.exceptions" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        exceptions
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#src.mi_app.exceptions.IdDuplicadoError" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        IdDuplicadoError
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#src.mi_app.exceptions.PrecioInvalidoError" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        PrecioInvalidoError
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#src.mi_app.exceptions.VehiculoNoEncontradoError" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        VehiculoNoEncontradoError
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#src.mi_app.exceptions.VehiculoYaVendidoError" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        VehiculoYaVendidoError
+      
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
+    </li>
+  
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+              
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="sidebar" data-md-type="toc" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#modelos-de-datos" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Modelos de Datos
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#src.mi_app.models.vehiculo" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        vehiculo
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#servicios-reglas-de-negocio" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Servicios (Reglas de Negocio)
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#src.mi_app.services" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        services
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#src.mi_app.services.InventarioService" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        InventarioService
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="InventarioService">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#src.mi_app.services.InventarioService.__init__" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        __init__
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#src.mi_app.services.InventarioService.agregar_vehiculo" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        agregar_vehiculo
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#src.mi_app.services.InventarioService.buscar_por_id" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        buscar_por_id
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#src.mi_app.services.InventarioService.listar_disponibles" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        listar_disponibles
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#excepciones" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Excepciones
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#src.mi_app.exceptions" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        exceptions
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#src.mi_app.exceptions.IdDuplicadoError" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        IdDuplicadoError
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#src.mi_app.exceptions.PrecioInvalidoError" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        PrecioInvalidoError
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#src.mi_app.exceptions.VehiculoNoEncontradoError" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        VehiculoNoEncontradoError
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#src.mi_app.exceptions.VehiculoYaVendidoError" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        VehiculoYaVendidoError
+      
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+          
+          
+            <div class="md-content" data-md-component="content">
+              
+              <article class="md-content__inner md-typeset">
+                
+                  
+
+
+
+<h1 id="referencia-tecnica">Referencia Técnica</h1>
+<p>A continuación se detalla la documentación autogenerada directamente desde el código fuente del sistema.</p>
+<h2 id="modelos-de-datos">Modelos de Datos</h2>
+<p>Entidades puras del sistema y sus validaciones internas (<code>__post_init__</code>).</p>
+
+
+<div class="doc doc-object doc-module">
+
+
+
+<a id="src.mi_app.models.vehiculo"></a>
+    <div class="doc doc-contents first">
+
+
+
+
+
+
+
+
+
+
+<div class="doc doc-children">
+
+
+
+
+
+
+
+
+
+
+
+
+  </div>
+
+    </div>
+
+</div><h2 id="servicios-reglas-de-negocio">Servicios (Reglas de Negocio)</h2>
+<p>Esta capa coordina las validaciones globales y actúa como intermediario entre la interfaz y los datos.</p>
+
+
+<div class="doc doc-object doc-module">
+
+
+
+<a id="src.mi_app.services"></a>
+    <div class="doc doc-contents first">
+
+
+
+
+
+
+
+
+
+
+<div class="doc doc-children">
+
+
+
+
+
+
+
+
+
+<div class="doc doc-object doc-class">
+
+
+
+<h2 id="src.mi_app.services.InventarioService" class="doc doc-heading">
+            <code>InventarioService</code>
+
+
+</h2>
+
+
+    <div class="doc doc-contents ">
+
+
+
+        <p>Servicio principal para gestionar la lógica de negocio del concesionario.
+Coordina los modelos, las validaciones y el almacenamiento.</p>
+
+
+
+
+
+
+
+
+              <details class="mkdocstrings-source">
+                <summary>Source code in <code>src/mi_app/services.py</code></summary>
+                <div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"> 10</span>
+<span class="normal"> 11</span>
+<span class="normal"> 12</span>
+<span class="normal"> 13</span>
+<span class="normal"> 14</span>
+<span class="normal"> 15</span>
+<span class="normal"> 16</span>
+<span class="normal"> 17</span>
+<span class="normal"> 18</span>
+<span class="normal"> 19</span>
+<span class="normal"> 20</span>
+<span class="normal"> 21</span>
+<span class="normal"> 22</span>
+<span class="normal"> 23</span>
+<span class="normal"> 24</span>
+<span class="normal"> 25</span>
+<span class="normal"> 26</span>
+<span class="normal"> 27</span>
+<span class="normal"> 28</span>
+<span class="normal"> 29</span>
+<span class="normal"> 30</span>
+<span class="normal"> 31</span>
+<span class="normal"> 32</span>
+<span class="normal"> 33</span>
+<span class="normal"> 34</span>
+<span class="normal"> 35</span>
+<span class="normal"> 36</span>
+<span class="normal"> 37</span>
+<span class="normal"> 38</span>
+<span class="normal"> 39</span>
+<span class="normal"> 40</span>
+<span class="normal"> 41</span>
+<span class="normal"> 42</span>
+<span class="normal"> 43</span>
+<span class="normal"> 44</span>
+<span class="normal"> 45</span>
+<span class="normal"> 46</span>
+<span class="normal"> 47</span>
+<span class="normal"> 48</span>
+<span class="normal"> 49</span>
+<span class="normal"> 50</span>
+<span class="normal"> 51</span>
+<span class="normal"> 52</span>
+<span class="normal"> 53</span>
+<span class="normal"> 54</span>
+<span class="normal"> 55</span>
+<span class="normal"> 56</span>
+<span class="normal"> 57</span>
+<span class="normal"> 58</span>
+<span class="normal"> 59</span>
+<span class="normal"> 60</span>
+<span class="normal"> 61</span>
+<span class="normal"> 62</span>
+<span class="normal"> 63</span>
+<span class="normal"> 64</span>
+<span class="normal"> 65</span>
+<span class="normal"> 66</span>
+<span class="normal"> 67</span>
+<span class="normal"> 68</span>
+<span class="normal"> 69</span>
+<span class="normal"> 70</span>
+<span class="normal"> 71</span>
+<span class="normal"> 72</span>
+<span class="normal"> 73</span>
+<span class="normal"> 74</span>
+<span class="normal"> 75</span>
+<span class="normal"> 76</span>
+<span class="normal"> 77</span>
+<span class="normal"> 78</span>
+<span class="normal"> 79</span>
+<span class="normal"> 80</span>
+<span class="normal"> 81</span>
+<span class="normal"> 82</span>
+<span class="normal"> 83</span>
+<span class="normal"> 84</span>
+<span class="normal"> 85</span>
+<span class="normal"> 86</span>
+<span class="normal"> 87</span>
+<span class="normal"> 88</span>
+<span class="normal"> 89</span>
+<span class="normal"> 90</span>
+<span class="normal"> 91</span>
+<span class="normal"> 92</span>
+<span class="normal"> 93</span>
+<span class="normal"> 94</span>
+<span class="normal"> 95</span>
+<span class="normal"> 96</span>
+<span class="normal"> 97</span>
+<span class="normal"> 98</span>
+<span class="normal"> 99</span>
+<span class="normal">100</span>
+<span class="normal">101</span>
+<span class="normal">102</span>
+<span class="normal">103</span>
+<span class="normal">104</span>
+<span class="normal">105</span>
+<span class="normal">106</span>
+<span class="normal">107</span>
+<span class="normal">108</span>
+<span class="normal">109</span>
+<span class="normal">110</span>
+<span class="normal">111</span>
+<span class="normal">112</span>
+<span class="normal">113</span>
+<span class="normal">114</span>
+<span class="normal">115</span>
+<span class="normal">116</span>
+<span class="normal">117</span>
+<span class="normal">118</span>
+<span class="normal">119</span>
+<span class="normal">120</span>
+<span class="normal">121</span>
+<span class="normal">122</span>
+<span class="normal">123</span>
+<span class="normal">124</span>
+<span class="normal">125</span>
+<span class="normal">126</span>
+<span class="normal">127</span>
+<span class="normal">128</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="k">class</span><span class="w"> </span><span class="nc">InventarioService</span><span class="p">:</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        Servicio principal para gestionar la lógica de negocio del concesionario.</span>
+<span class="sd">        Coordina los modelos, las validaciones y el almacenamiento.</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+    <span class="k">def</span><span class="w"> </span><span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;Inicializa el servicio cargando los datos desde el archivo JSON.&quot;&quot;&quot;</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">_datos_crudos</span> <span class="o">=</span> <span class="n">cargar_datos</span><span class="p">()</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">vehiculos</span><span class="p">:</span> <span class="n">List</span><span class="p">[</span><span class="n">VehiculoUsado</span><span class="p">]</span> <span class="o">=</span> <span class="p">[]</span>
+
+        <span class="k">for</span> <span class="n">v</span> <span class="ow">in</span> <span class="bp">self</span><span class="o">.</span><span class="n">_datos_crudos</span><span class="p">:</span>
+            <span class="n">estado_texto</span> <span class="o">=</span> <span class="n">v</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s2">&quot;estado&quot;</span><span class="p">,</span> <span class="n">EstadoVehiculo</span><span class="o">.</span><span class="n">DISPONIBLE</span><span class="o">.</span><span class="n">value</span><span class="p">)</span>
+            <span class="n">v</span><span class="p">[</span><span class="s2">&quot;estado&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="n">EstadoVehiculo</span><span class="p">(</span><span class="n">estado_texto</span><span class="p">)</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">vehiculos</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">VehiculoUsado</span><span class="p">(</span><span class="o">**</span><span class="n">v</span><span class="p">))</span>
+
+    <span class="k">def</span><span class="w"> </span><span class="nf">_guardar</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kc">None</span><span class="p">:</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;Guarda el estado actual del inventario en el archivo de almacenamiento.&quot;&quot;&quot;</span>
+        <span class="n">datos_a_guardar</span> <span class="o">=</span> <span class="p">[]</span>
+        <span class="k">for</span> <span class="n">v</span> <span class="ow">in</span> <span class="bp">self</span><span class="o">.</span><span class="n">vehiculos</span><span class="p">:</span>
+            <span class="n">diccionario</span> <span class="o">=</span> <span class="p">{</span>
+                <span class="s2">&quot;id_vehiculo&quot;</span><span class="p">:</span> <span class="n">v</span><span class="o">.</span><span class="n">id_vehiculo</span><span class="p">,</span>
+                <span class="s2">&quot;marca&quot;</span><span class="p">:</span> <span class="n">v</span><span class="o">.</span><span class="n">marca</span><span class="p">,</span>
+                <span class="s2">&quot;modelo&quot;</span><span class="p">:</span> <span class="n">v</span><span class="o">.</span><span class="n">modelo</span><span class="p">,</span>
+                <span class="s2">&quot;anio&quot;</span><span class="p">:</span> <span class="n">v</span><span class="o">.</span><span class="n">anio</span><span class="p">,</span>
+                <span class="s2">&quot;kilometraje&quot;</span><span class="p">:</span> <span class="n">v</span><span class="o">.</span><span class="n">kilometraje</span><span class="p">,</span>
+                <span class="s2">&quot;precio&quot;</span><span class="p">:</span> <span class="n">v</span><span class="o">.</span><span class="n">precio</span><span class="p">,</span>
+                <span class="s2">&quot;estado&quot;</span><span class="p">:</span> <span class="n">v</span><span class="o">.</span><span class="n">estado</span><span class="o">.</span><span class="n">value</span>
+            <span class="p">}</span>
+            <span class="n">datos_a_guardar</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">diccionario</span><span class="p">)</span>
+        <span class="n">guardar_datos</span><span class="p">(</span><span class="n">datos_a_guardar</span><span class="p">)</span>
+
+    <span class="k">def</span><span class="w"> </span><span class="nf">listar_disponibles</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">List</span><span class="p">[</span><span class="n">VehiculoUsado</span><span class="p">]:</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">            Filtra y devuelve todos los vehículos que no han sido vendidos.</span>
+
+<span class="sd">            Returns:</span>
+<span class="sd">                List[VehiculoUsado]: Lista de vehículos con estado DISPONIBLE.</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="k">return</span> <span class="p">[</span><span class="n">v</span> <span class="k">for</span> <span class="n">v</span> <span class="ow">in</span> <span class="bp">self</span><span class="o">.</span><span class="n">vehiculos</span> <span class="k">if</span> <span class="n">v</span><span class="o">.</span><span class="n">estado</span> <span class="o">==</span> <span class="n">EstadoVehiculo</span><span class="o">.</span><span class="n">DISPONIBLE</span><span class="p">]</span>
+
+    <span class="k">def</span><span class="w"> </span><span class="nf">buscar_por_id</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">id_vehiculo</span><span class="p">:</span> <span class="nb">int</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">VehiculoUsado</span><span class="p">:</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">                Busca un vehículo específico por su identificador único.</span>
+
+<span class="sd">                Args:</span>
+<span class="sd">                    id_vehiculo (int): El ID del vehículo a buscar.</span>
+
+<span class="sd">                Raises:</span>
+<span class="sd">                    VehiculoNoEncontradoError: Si no existe ningún vehículo con ese ID.</span>
+
+<span class="sd">                Returns:</span>
+<span class="sd">                    VehiculoUsado: El objeto del vehículo encontrado.</span>
+<span class="sd">                &quot;&quot;&quot;</span>
+        <span class="k">for</span> <span class="n">v</span> <span class="ow">in</span> <span class="bp">self</span><span class="o">.</span><span class="n">vehiculos</span><span class="p">:</span>
+            <span class="k">if</span> <span class="n">v</span><span class="o">.</span><span class="n">id_vehiculo</span> <span class="o">==</span> <span class="n">id_vehiculo</span><span class="p">:</span>
+                <span class="k">return</span> <span class="n">v</span>
+        <span class="k">raise</span> <span class="n">VehiculoNoEncontradoError</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;El vehículo con ID </span><span class="si">{</span><span class="n">id_vehiculo</span><span class="si">}</span><span class="s2"> no existe en el lote.&quot;</span><span class="p">)</span>
+
+    <span class="k">def</span><span class="w"> </span><span class="nf">agregar_vehiculo</span><span class="p">(</span>
+            <span class="bp">self</span><span class="p">,</span> <span class="n">id_vehiculo</span><span class="p">:</span> <span class="nb">int</span><span class="p">,</span> <span class="n">marca</span><span class="p">:</span> <span class="nb">str</span><span class="p">,</span> <span class="n">modelo</span><span class="p">:</span> <span class="nb">str</span><span class="p">,</span>
+            <span class="n">anio</span><span class="p">:</span> <span class="nb">int</span><span class="p">,</span> <span class="n">kilometraje</span><span class="p">:</span> <span class="nb">int</span><span class="p">,</span> <span class="n">precio</span><span class="p">:</span> <span class="nb">float</span>
+    <span class="p">)</span> <span class="o">-&gt;</span> <span class="n">VehiculoUsado</span><span class="p">:</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">            Registra un nuevo carro en el inventario del concesionario.</span>
+
+<span class="sd">            Args:</span>
+<span class="sd">                id_vehiculo (int): Identificador único.</span>
+<span class="sd">                marca (str): Marca del carro (ej. Hyundai).</span>
+<span class="sd">                modelo (str): Modelo del carro (ej. HB20).</span>
+<span class="sd">                anio (int): Año de fabricación.</span>
+<span class="sd">                kilometraje (int): Kilometraje actual.</span>
+<span class="sd">                precio (float): Precio de venta.</span>
+
+<span class="sd">            Raises:</span>
+<span class="sd">                IdDuplicadoError: Si ya existe un vehículo con el mismo ID.</span>
+
+<span class="sd">            Returns:</span>
+<span class="sd">                VehiculoUsado: El nuevo vehículo creado.</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="k">for</span> <span class="n">v</span> <span class="ow">in</span> <span class="bp">self</span><span class="o">.</span><span class="n">vehiculos</span><span class="p">:</span>
+            <span class="k">if</span> <span class="n">v</span><span class="o">.</span><span class="n">id_vehiculo</span> <span class="o">==</span> <span class="n">id_vehiculo</span><span class="p">:</span>
+                <span class="k">raise</span> <span class="n">IdDuplicadoError</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Ya existe un vehículo registrado con el ID </span><span class="si">{</span><span class="n">id_vehiculo</span><span class="si">}</span><span class="s2">.&quot;</span><span class="p">)</span>
+
+        <span class="k">if</span> <span class="n">precio</span> <span class="o">&lt;</span> <span class="mi">0</span><span class="p">:</span>
+            <span class="k">raise</span> <span class="n">PrecioInvalidoError</span><span class="p">(</span><span class="s2">&quot;El precio de un vehículo no puede ser negativo.&quot;</span><span class="p">)</span>
+
+        <span class="n">nuevo_vehiculo</span> <span class="o">=</span> <span class="n">VehiculoUsado</span><span class="p">(</span>
+            <span class="n">id_vehiculo</span><span class="o">=</span><span class="n">id_vehiculo</span><span class="p">,</span>
+            <span class="n">marca</span><span class="o">=</span><span class="n">marca</span><span class="p">,</span>
+            <span class="n">modelo</span><span class="o">=</span><span class="n">modelo</span><span class="p">,</span>
+            <span class="n">anio</span><span class="o">=</span><span class="n">anio</span><span class="p">,</span>
+            <span class="n">kilometraje</span><span class="o">=</span><span class="n">kilometraje</span><span class="p">,</span>
+            <span class="n">precio</span><span class="o">=</span><span class="n">precio</span><span class="p">,</span>
+            <span class="n">estado</span><span class="o">=</span><span class="n">EstadoVehiculo</span><span class="o">.</span><span class="n">DISPONIBLE</span>
+        <span class="p">)</span>
+
+        <span class="bp">self</span><span class="o">.</span><span class="n">vehiculos</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">nuevo_vehiculo</span><span class="p">)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">_guardar</span><span class="p">()</span>
+        <span class="k">return</span> <span class="n">nuevo_vehiculo</span>
+
+    <span class="k">def</span><span class="w"> </span><span class="nf">actualizar_precio</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">id_vehiculo</span><span class="p">:</span> <span class="nb">int</span><span class="p">,</span> <span class="n">nuevo_precio</span><span class="p">:</span> <span class="nb">float</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">VehiculoUsado</span><span class="p">:</span>
+        <span class="k">if</span> <span class="n">nuevo_precio</span> <span class="o">&lt;</span> <span class="mi">0</span><span class="p">:</span>
+            <span class="k">raise</span> <span class="n">PrecioInvalidoError</span><span class="p">(</span><span class="s2">&quot;El nuevo precio no puede ser negativo.&quot;</span><span class="p">)</span>
+
+        <span class="n">vehiculo</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">buscar_por_id</span><span class="p">(</span><span class="n">id_vehiculo</span><span class="p">)</span>
+        <span class="n">vehiculo</span><span class="o">.</span><span class="n">precio</span> <span class="o">=</span> <span class="n">nuevo_precio</span>
+
+        <span class="bp">self</span><span class="o">.</span><span class="n">_guardar</span><span class="p">()</span>
+        <span class="k">return</span> <span class="n">vehiculo</span>
+
+    <span class="k">def</span><span class="w"> </span><span class="nf">vender_vehiculo</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">id_vehiculo</span><span class="p">:</span> <span class="nb">int</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">VehiculoUsado</span><span class="p">:</span>
+        <span class="n">vehiculo</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">buscar_por_id</span><span class="p">(</span><span class="n">id_vehiculo</span><span class="p">)</span>
+
+        <span class="k">if</span> <span class="n">vehiculo</span><span class="o">.</span><span class="n">estado</span> <span class="o">==</span> <span class="n">EstadoVehiculo</span><span class="o">.</span><span class="n">VENDIDO</span><span class="p">:</span>
+            <span class="k">raise</span> <span class="n">VehiculoYaVendidoError</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;El vehículo &#39;</span><span class="si">{</span><span class="n">vehiculo</span><span class="o">.</span><span class="n">marca</span><span class="si">}</span><span class="s2"> </span><span class="si">{</span><span class="n">vehiculo</span><span class="o">.</span><span class="n">modelo</span><span class="si">}</span><span class="s2">&#39; ya fue vendido.&quot;</span><span class="p">)</span>
+
+        <span class="n">vehiculo</span><span class="o">.</span><span class="n">estado</span> <span class="o">=</span> <span class="n">EstadoVehiculo</span><span class="o">.</span><span class="n">VENDIDO</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">_guardar</span><span class="p">()</span>
+        <span class="k">return</span> <span class="n">vehiculo</span>
+</code></pre></div></td></tr></table></div>
+              </details>
+
+
+
+<div class="doc doc-children">
+
+
+
+
+
+
+
+
+
+
+<div class="doc doc-object doc-function">
+
+
+<h3 id="src.mi_app.services.InventarioService.__init__" class="doc doc-heading">
+            <code class="highlight language-python"><span class="fm">__init__</span><span class="p">()</span></code>
+
+</h3>
+
+
+    <div class="doc doc-contents ">
+
+        <p>Inicializa el servicio cargando los datos desde el archivo JSON.</p>
+
+
+            <details class="mkdocstrings-source">
+              <summary>Source code in <code>src/mi_app/services.py</code></summary>
+              <div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">15</span>
+<span class="normal">16</span>
+<span class="normal">17</span>
+<span class="normal">18</span>
+<span class="normal">19</span>
+<span class="normal">20</span>
+<span class="normal">21</span>
+<span class="normal">22</span>
+<span class="normal">23</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="k">def</span><span class="w"> </span><span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;Inicializa el servicio cargando los datos desde el archivo JSON.&quot;&quot;&quot;</span>
+    <span class="bp">self</span><span class="o">.</span><span class="n">_datos_crudos</span> <span class="o">=</span> <span class="n">cargar_datos</span><span class="p">()</span>
+    <span class="bp">self</span><span class="o">.</span><span class="n">vehiculos</span><span class="p">:</span> <span class="n">List</span><span class="p">[</span><span class="n">VehiculoUsado</span><span class="p">]</span> <span class="o">=</span> <span class="p">[]</span>
+
+    <span class="k">for</span> <span class="n">v</span> <span class="ow">in</span> <span class="bp">self</span><span class="o">.</span><span class="n">_datos_crudos</span><span class="p">:</span>
+        <span class="n">estado_texto</span> <span class="o">=</span> <span class="n">v</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s2">&quot;estado&quot;</span><span class="p">,</span> <span class="n">EstadoVehiculo</span><span class="o">.</span><span class="n">DISPONIBLE</span><span class="o">.</span><span class="n">value</span><span class="p">)</span>
+        <span class="n">v</span><span class="p">[</span><span class="s2">&quot;estado&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="n">EstadoVehiculo</span><span class="p">(</span><span class="n">estado_texto</span><span class="p">)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">vehiculos</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">VehiculoUsado</span><span class="p">(</span><span class="o">**</span><span class="n">v</span><span class="p">))</span>
+</code></pre></div></td></tr></table></div>
+            </details>
+    </div>
+
+</div>
+
+<div class="doc doc-object doc-function">
+
+
+<h3 id="src.mi_app.services.InventarioService.agregar_vehiculo" class="doc doc-heading">
+            <code class="highlight language-python"><span class="n">agregar_vehiculo</span><span class="p">(</span><span class="n">id_vehiculo</span><span class="p">,</span> <span class="n">marca</span><span class="p">,</span> <span class="n">modelo</span><span class="p">,</span> <span class="n">anio</span><span class="p">,</span> <span class="n">kilometraje</span><span class="p">,</span> <span class="n">precio</span><span class="p">)</span></code>
+
+</h3>
+
+
+    <div class="doc doc-contents ">
+
+        <p>Registra un nuevo carro en el inventario del concesionario.</p>
+
+
+<p><span class="doc-section-title">Parameters:</span></p>
+    <table>
+      <thead>
+        <tr>
+          <th>Name</th>
+          <th>Type</th>
+          <th>Description</th>
+          <th>Default</th>
+        </tr>
+      </thead>
+      <tbody>
+          <tr class="doc-section-item">
+            <td>
+                <code>id_vehiculo</code>
+            </td>
+            <td>
+                  <code><span title="int">int</span></code>
+            </td>
+            <td>
+              <div class="doc-md-description">
+                <p>Identificador único.</p>
+              </div>
+            </td>
+            <td>
+                <em>required</em>
+            </td>
+          </tr>
+          <tr class="doc-section-item">
+            <td>
+                <code>marca</code>
+            </td>
+            <td>
+                  <code><span title="str">str</span></code>
+            </td>
+            <td>
+              <div class="doc-md-description">
+                <p>Marca del carro (ej. Hyundai).</p>
+              </div>
+            </td>
+            <td>
+                <em>required</em>
+            </td>
+          </tr>
+          <tr class="doc-section-item">
+            <td>
+                <code>modelo</code>
+            </td>
+            <td>
+                  <code><span title="str">str</span></code>
+            </td>
+            <td>
+              <div class="doc-md-description">
+                <p>Modelo del carro (ej. HB20).</p>
+              </div>
+            </td>
+            <td>
+                <em>required</em>
+            </td>
+          </tr>
+          <tr class="doc-section-item">
+            <td>
+                <code>anio</code>
+            </td>
+            <td>
+                  <code><span title="int">int</span></code>
+            </td>
+            <td>
+              <div class="doc-md-description">
+                <p>Año de fabricación.</p>
+              </div>
+            </td>
+            <td>
+                <em>required</em>
+            </td>
+          </tr>
+          <tr class="doc-section-item">
+            <td>
+                <code>kilometraje</code>
+            </td>
+            <td>
+                  <code><span title="int">int</span></code>
+            </td>
+            <td>
+              <div class="doc-md-description">
+                <p>Kilometraje actual.</p>
+              </div>
+            </td>
+            <td>
+                <em>required</em>
+            </td>
+          </tr>
+          <tr class="doc-section-item">
+            <td>
+                <code>precio</code>
+            </td>
+            <td>
+                  <code><span title="float">float</span></code>
+            </td>
+            <td>
+              <div class="doc-md-description">
+                <p>Precio de venta.</p>
+              </div>
+            </td>
+            <td>
+                <em>required</em>
+            </td>
+          </tr>
+      </tbody>
+    </table>
+
+
+<p><span class="doc-section-title">Raises:</span></p>
+    <table>
+      <thead>
+        <tr>
+          <th>Type</th>
+          <th>Description</th>
+        </tr>
+      </thead>
+      <tbody>
+          <tr class="doc-section-item">
+            <td>
+                  <code><a class="autorefs autorefs-internal" title="IdDuplicadoError (src.mi_app.exceptions.IdDuplicadoError)" href="#src.mi_app.exceptions.IdDuplicadoError">IdDuplicadoError</a></code>
+            </td>
+            <td>
+              <div class="doc-md-description">
+                <p>Si ya existe un vehículo con el mismo ID.</p>
+              </div>
+            </td>
+          </tr>
+      </tbody>
+    </table>
+
+
+    <p><span class="doc-section-title">Returns:</span></p>
+    <table>
+      <thead>
+        <tr>
+<th>Name</th>          <th>Type</th>
+          <th>Description</th>
+        </tr>
+      </thead>
+      <tbody>
+          <tr class="doc-section-item">
+<td><code>VehiculoUsado</code></td>            <td>
+                  <code><span title="src.mi_app.models.vehiculo.VehiculoUsado">VehiculoUsado</span></code>
+            </td>
+            <td>
+              <div class="doc-md-description">
+                <p>El nuevo vehículo creado.</p>
+              </div>
+            </td>
+          </tr>
+      </tbody>
+    </table>
+
+
+            <details class="mkdocstrings-source">
+              <summary>Source code in <code>src/mi_app/services.py</code></summary>
+              <div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"> 68</span>
+<span class="normal"> 69</span>
+<span class="normal"> 70</span>
+<span class="normal"> 71</span>
+<span class="normal"> 72</span>
+<span class="normal"> 73</span>
+<span class="normal"> 74</span>
+<span class="normal"> 75</span>
+<span class="normal"> 76</span>
+<span class="normal"> 77</span>
+<span class="normal"> 78</span>
+<span class="normal"> 79</span>
+<span class="normal"> 80</span>
+<span class="normal"> 81</span>
+<span class="normal"> 82</span>
+<span class="normal"> 83</span>
+<span class="normal"> 84</span>
+<span class="normal"> 85</span>
+<span class="normal"> 86</span>
+<span class="normal"> 87</span>
+<span class="normal"> 88</span>
+<span class="normal"> 89</span>
+<span class="normal"> 90</span>
+<span class="normal"> 91</span>
+<span class="normal"> 92</span>
+<span class="normal"> 93</span>
+<span class="normal"> 94</span>
+<span class="normal"> 95</span>
+<span class="normal"> 96</span>
+<span class="normal"> 97</span>
+<span class="normal"> 98</span>
+<span class="normal"> 99</span>
+<span class="normal">100</span>
+<span class="normal">101</span>
+<span class="normal">102</span>
+<span class="normal">103</span>
+<span class="normal">104</span>
+<span class="normal">105</span>
+<span class="normal">106</span>
+<span class="normal">107</span>
+<span class="normal">108</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="k">def</span><span class="w"> </span><span class="nf">agregar_vehiculo</span><span class="p">(</span>
+        <span class="bp">self</span><span class="p">,</span> <span class="n">id_vehiculo</span><span class="p">:</span> <span class="nb">int</span><span class="p">,</span> <span class="n">marca</span><span class="p">:</span> <span class="nb">str</span><span class="p">,</span> <span class="n">modelo</span><span class="p">:</span> <span class="nb">str</span><span class="p">,</span>
+        <span class="n">anio</span><span class="p">:</span> <span class="nb">int</span><span class="p">,</span> <span class="n">kilometraje</span><span class="p">:</span> <span class="nb">int</span><span class="p">,</span> <span class="n">precio</span><span class="p">:</span> <span class="nb">float</span>
+<span class="p">)</span> <span class="o">-&gt;</span> <span class="n">VehiculoUsado</span><span class="p">:</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        Registra un nuevo carro en el inventario del concesionario.</span>
+
+<span class="sd">        Args:</span>
+<span class="sd">            id_vehiculo (int): Identificador único.</span>
+<span class="sd">            marca (str): Marca del carro (ej. Hyundai).</span>
+<span class="sd">            modelo (str): Modelo del carro (ej. HB20).</span>
+<span class="sd">            anio (int): Año de fabricación.</span>
+<span class="sd">            kilometraje (int): Kilometraje actual.</span>
+<span class="sd">            precio (float): Precio de venta.</span>
+
+<span class="sd">        Raises:</span>
+<span class="sd">            IdDuplicadoError: Si ya existe un vehículo con el mismo ID.</span>
+
+<span class="sd">        Returns:</span>
+<span class="sd">            VehiculoUsado: El nuevo vehículo creado.</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="k">for</span> <span class="n">v</span> <span class="ow">in</span> <span class="bp">self</span><span class="o">.</span><span class="n">vehiculos</span><span class="p">:</span>
+        <span class="k">if</span> <span class="n">v</span><span class="o">.</span><span class="n">id_vehiculo</span> <span class="o">==</span> <span class="n">id_vehiculo</span><span class="p">:</span>
+            <span class="k">raise</span> <span class="n">IdDuplicadoError</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Ya existe un vehículo registrado con el ID </span><span class="si">{</span><span class="n">id_vehiculo</span><span class="si">}</span><span class="s2">.&quot;</span><span class="p">)</span>
+
+    <span class="k">if</span> <span class="n">precio</span> <span class="o">&lt;</span> <span class="mi">0</span><span class="p">:</span>
+        <span class="k">raise</span> <span class="n">PrecioInvalidoError</span><span class="p">(</span><span class="s2">&quot;El precio de un vehículo no puede ser negativo.&quot;</span><span class="p">)</span>
+
+    <span class="n">nuevo_vehiculo</span> <span class="o">=</span> <span class="n">VehiculoUsado</span><span class="p">(</span>
+        <span class="n">id_vehiculo</span><span class="o">=</span><span class="n">id_vehiculo</span><span class="p">,</span>
+        <span class="n">marca</span><span class="o">=</span><span class="n">marca</span><span class="p">,</span>
+        <span class="n">modelo</span><span class="o">=</span><span class="n">modelo</span><span class="p">,</span>
+        <span class="n">anio</span><span class="o">=</span><span class="n">anio</span><span class="p">,</span>
+        <span class="n">kilometraje</span><span class="o">=</span><span class="n">kilometraje</span><span class="p">,</span>
+        <span class="n">precio</span><span class="o">=</span><span class="n">precio</span><span class="p">,</span>
+        <span class="n">estado</span><span class="o">=</span><span class="n">EstadoVehiculo</span><span class="o">.</span><span class="n">DISPONIBLE</span>
+    <span class="p">)</span>
+
+    <span class="bp">self</span><span class="o">.</span><span class="n">vehiculos</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">nuevo_vehiculo</span><span class="p">)</span>
+    <span class="bp">self</span><span class="o">.</span><span class="n">_guardar</span><span class="p">()</span>
+    <span class="k">return</span> <span class="n">nuevo_vehiculo</span>
+</code></pre></div></td></tr></table></div>
+            </details>
+    </div>
+
+</div>
+
+<div class="doc doc-object doc-function">
+
+
+<h3 id="src.mi_app.services.InventarioService.buscar_por_id" class="doc doc-heading">
+            <code class="highlight language-python"><span class="n">buscar_por_id</span><span class="p">(</span><span class="n">id_vehiculo</span><span class="p">)</span></code>
+
+</h3>
+
+
+    <div class="doc doc-contents ">
+
+        <p>Busca un vehículo específico por su identificador único.</p>
+
+
+<p><span class="doc-section-title">Parameters:</span></p>
+    <table>
+      <thead>
+        <tr>
+          <th>Name</th>
+          <th>Type</th>
+          <th>Description</th>
+          <th>Default</th>
+        </tr>
+      </thead>
+      <tbody>
+          <tr class="doc-section-item">
+            <td>
+                <code>id_vehiculo</code>
+            </td>
+            <td>
+                  <code><span title="int">int</span></code>
+            </td>
+            <td>
+              <div class="doc-md-description">
+                <p>El ID del vehículo a buscar.</p>
+              </div>
+            </td>
+            <td>
+                <em>required</em>
+            </td>
+          </tr>
+      </tbody>
+    </table>
+
+
+<p><span class="doc-section-title">Raises:</span></p>
+    <table>
+      <thead>
+        <tr>
+          <th>Type</th>
+          <th>Description</th>
+        </tr>
+      </thead>
+      <tbody>
+          <tr class="doc-section-item">
+            <td>
+                  <code><a class="autorefs autorefs-internal" title="VehiculoNoEncontradoError (src.mi_app.exceptions.VehiculoNoEncontradoError)" href="#src.mi_app.exceptions.VehiculoNoEncontradoError">VehiculoNoEncontradoError</a></code>
+            </td>
+            <td>
+              <div class="doc-md-description">
+                <p>Si no existe ningún vehículo con ese ID.</p>
+              </div>
+            </td>
+          </tr>
+      </tbody>
+    </table>
+
+
+    <p><span class="doc-section-title">Returns:</span></p>
+    <table>
+      <thead>
+        <tr>
+<th>Name</th>          <th>Type</th>
+          <th>Description</th>
+        </tr>
+      </thead>
+      <tbody>
+          <tr class="doc-section-item">
+<td><code>VehiculoUsado</code></td>            <td>
+                  <code><span title="src.mi_app.models.vehiculo.VehiculoUsado">VehiculoUsado</span></code>
+            </td>
+            <td>
+              <div class="doc-md-description">
+                <p>El objeto del vehículo encontrado.</p>
+              </div>
+            </td>
+          </tr>
+      </tbody>
+    </table>
+
+
+            <details class="mkdocstrings-source">
+              <summary>Source code in <code>src/mi_app/services.py</code></summary>
+              <div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">50</span>
+<span class="normal">51</span>
+<span class="normal">52</span>
+<span class="normal">53</span>
+<span class="normal">54</span>
+<span class="normal">55</span>
+<span class="normal">56</span>
+<span class="normal">57</span>
+<span class="normal">58</span>
+<span class="normal">59</span>
+<span class="normal">60</span>
+<span class="normal">61</span>
+<span class="normal">62</span>
+<span class="normal">63</span>
+<span class="normal">64</span>
+<span class="normal">65</span>
+<span class="normal">66</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="k">def</span><span class="w"> </span><span class="nf">buscar_por_id</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">id_vehiculo</span><span class="p">:</span> <span class="nb">int</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">VehiculoUsado</span><span class="p">:</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">            Busca un vehículo específico por su identificador único.</span>
+
+<span class="sd">            Args:</span>
+<span class="sd">                id_vehiculo (int): El ID del vehículo a buscar.</span>
+
+<span class="sd">            Raises:</span>
+<span class="sd">                VehiculoNoEncontradoError: Si no existe ningún vehículo con ese ID.</span>
+
+<span class="sd">            Returns:</span>
+<span class="sd">                VehiculoUsado: El objeto del vehículo encontrado.</span>
+<span class="sd">            &quot;&quot;&quot;</span>
+    <span class="k">for</span> <span class="n">v</span> <span class="ow">in</span> <span class="bp">self</span><span class="o">.</span><span class="n">vehiculos</span><span class="p">:</span>
+        <span class="k">if</span> <span class="n">v</span><span class="o">.</span><span class="n">id_vehiculo</span> <span class="o">==</span> <span class="n">id_vehiculo</span><span class="p">:</span>
+            <span class="k">return</span> <span class="n">v</span>
+    <span class="k">raise</span> <span class="n">VehiculoNoEncontradoError</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;El vehículo con ID </span><span class="si">{</span><span class="n">id_vehiculo</span><span class="si">}</span><span class="s2"> no existe en el lote.&quot;</span><span class="p">)</span>
+</code></pre></div></td></tr></table></div>
+            </details>
+    </div>
+
+</div>
+
+<div class="doc doc-object doc-function">
+
+
+<h3 id="src.mi_app.services.InventarioService.listar_disponibles" class="doc doc-heading">
+            <code class="highlight language-python"><span class="n">listar_disponibles</span><span class="p">()</span></code>
+
+</h3>
+
+
+    <div class="doc doc-contents ">
+
+        <p>Filtra y devuelve todos los vehículos que no han sido vendidos.</p>
+
+
+    <p><span class="doc-section-title">Returns:</span></p>
+    <table>
+      <thead>
+        <tr>
+          <th>Type</th>
+          <th>Description</th>
+        </tr>
+      </thead>
+      <tbody>
+          <tr class="doc-section-item">
+            <td>
+                  <code><span title="typing.List">List</span>[<span title="src.mi_app.models.vehiculo.VehiculoUsado">VehiculoUsado</span>]</code>
+            </td>
+            <td>
+              <div class="doc-md-description">
+                <p>List[VehiculoUsado]: Lista de vehículos con estado DISPONIBLE.</p>
+              </div>
+            </td>
+          </tr>
+      </tbody>
+    </table>
+
+
+            <details class="mkdocstrings-source">
+              <summary>Source code in <code>src/mi_app/services.py</code></summary>
+              <div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">41</span>
+<span class="normal">42</span>
+<span class="normal">43</span>
+<span class="normal">44</span>
+<span class="normal">45</span>
+<span class="normal">46</span>
+<span class="normal">47</span>
+<span class="normal">48</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="k">def</span><span class="w"> </span><span class="nf">listar_disponibles</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">List</span><span class="p">[</span><span class="n">VehiculoUsado</span><span class="p">]:</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        Filtra y devuelve todos los vehículos que no han sido vendidos.</span>
+
+<span class="sd">        Returns:</span>
+<span class="sd">            List[VehiculoUsado]: Lista de vehículos con estado DISPONIBLE.</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="k">return</span> <span class="p">[</span><span class="n">v</span> <span class="k">for</span> <span class="n">v</span> <span class="ow">in</span> <span class="bp">self</span><span class="o">.</span><span class="n">vehiculos</span> <span class="k">if</span> <span class="n">v</span><span class="o">.</span><span class="n">estado</span> <span class="o">==</span> <span class="n">EstadoVehiculo</span><span class="o">.</span><span class="n">DISPONIBLE</span><span class="p">]</span>
+</code></pre></div></td></tr></table></div>
+            </details>
+    </div>
+
+</div>
+
+
+
+  </div>
+
+    </div>
+
+</div>
+
+
+
+
+  </div>
+
+    </div>
+
+</div><h2 id="excepciones">Excepciones</h2>
+<p>Errores personalizados para manejar las fallas del dominio.</p>
+
+
+<div class="doc doc-object doc-module">
+
+
+
+<a id="src.mi_app.exceptions"></a>
+    <div class="doc doc-contents first">
+
+
+
+
+
+
+
+
+
+
+<div class="doc doc-children">
+
+
+
+
+
+
+
+
+
+<div class="doc doc-object doc-class">
+
+
+
+<h2 id="src.mi_app.exceptions.IdDuplicadoError" class="doc doc-heading">
+            <code>IdDuplicadoError</code>
+
+
+</h2>
+
+
+    <div class="doc doc-contents ">
+            <p class="doc doc-class-bases">
+              Bases: <code><span title="Exception">Exception</span></code></p>
+
+
+
+        <p>Se lanza cuando se intenta registrar un vehículo con un ID ya existente.</p>
+
+
+
+
+
+
+
+
+              <details class="mkdocstrings-source">
+                <summary>Source code in <code>src/mi_app/exceptions.py</code></summary>
+                <div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"> 9</span>
+<span class="normal">10</span>
+<span class="normal">11</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="k">class</span><span class="w"> </span><span class="nc">IdDuplicadoError</span><span class="p">(</span><span class="ne">Exception</span><span class="p">):</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;Se lanza cuando se intenta registrar un vehículo con un ID ya existente.&quot;&quot;&quot;</span>
+    <span class="k">pass</span>
+</code></pre></div></td></tr></table></div>
+              </details>
+
+    </div>
+
+</div>
+
+<div class="doc doc-object doc-class">
+
+
+
+<h2 id="src.mi_app.exceptions.PrecioInvalidoError" class="doc doc-heading">
+            <code>PrecioInvalidoError</code>
+
+
+</h2>
+
+
+    <div class="doc doc-contents ">
+            <p class="doc doc-class-bases">
+              Bases: <code><span title="Exception">Exception</span></code></p>
+
+
+
+        <p>Se lanza cuando se intenta asignar un precio negativo a un vehículo.</p>
+
+
+
+
+
+
+
+
+              <details class="mkdocstrings-source">
+                <summary>Source code in <code>src/mi_app/exceptions.py</code></summary>
+                <div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">5</span>
+<span class="normal">6</span>
+<span class="normal">7</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="k">class</span><span class="w"> </span><span class="nc">PrecioInvalidoError</span><span class="p">(</span><span class="ne">Exception</span><span class="p">):</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;Se lanza cuando se intenta asignar un precio negativo a un vehículo.&quot;&quot;&quot;</span>
+    <span class="k">pass</span>
+</code></pre></div></td></tr></table></div>
+              </details>
+
+    </div>
+
+</div>
+
+<div class="doc doc-object doc-class">
+
+
+
+<h2 id="src.mi_app.exceptions.VehiculoNoEncontradoError" class="doc doc-heading">
+            <code>VehiculoNoEncontradoError</code>
+
+
+</h2>
+
+
+    <div class="doc doc-contents ">
+            <p class="doc doc-class-bases">
+              Bases: <code><span title="Exception">Exception</span></code></p>
+
+
+
+        <p>Se lanza cuando se busca un ID que no existe en el inventario.</p>
+
+
+
+
+
+
+
+
+              <details class="mkdocstrings-source">
+                <summary>Source code in <code>src/mi_app/exceptions.py</code></summary>
+                <div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span>
+<span class="normal">2</span>
+<span class="normal">3</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="k">class</span><span class="w"> </span><span class="nc">VehiculoNoEncontradoError</span><span class="p">(</span><span class="ne">Exception</span><span class="p">):</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;Se lanza cuando se busca un ID que no existe en el inventario.&quot;&quot;&quot;</span>
+    <span class="k">pass</span>
+</code></pre></div></td></tr></table></div>
+              </details>
+
+    </div>
+
+</div>
+
+<div class="doc doc-object doc-class">
+
+
+
+<h2 id="src.mi_app.exceptions.VehiculoYaVendidoError" class="doc doc-heading">
+            <code>VehiculoYaVendidoError</code>
+
+
+</h2>
+
+
+    <div class="doc doc-contents ">
+            <p class="doc doc-class-bases">
+              Bases: <code><span title="Exception">Exception</span></code></p>
+
+
+
+        <p>Se lanza cuando se intenta vender un vehículo que ya tiene estado VENDIDO.</p>
+
+
+
+
+
+
+
+
+              <details class="mkdocstrings-source">
+                <summary>Source code in <code>src/mi_app/exceptions.py</code></summary>
+                <div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">13</span>
+<span class="normal">14</span>
+<span class="normal">15</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="k">class</span><span class="w"> </span><span class="nc">VehiculoYaVendidoError</span><span class="p">(</span><span class="ne">Exception</span><span class="p">):</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;Se lanza cuando se intenta vender un vehículo que ya tiene estado VENDIDO.&quot;&quot;&quot;</span>
+    <span class="k">pass</span>
+</code></pre></div></td></tr></table></div>
+              </details>
+
+    </div>
+
+</div>
+
+
+
+
+  </div>
+
+    </div>
+
+</div>
+
+
+
+
+
+
+
+
+
+
+
+
+                
+              </article>
+            </div>
+          
+          
+  <script>var tabs=__md_get("__tabs");if(Array.isArray(tabs))e:for(var set of document.querySelectorAll(".tabbed-set")){var labels=set.querySelector(".tabbed-labels");for(var tab of tabs)for(var label of labels.getElementsByTagName("label"))if(label.innerText.trim()===tab){var input=document.getElementById(label.htmlFor);input.checked=!0;continue e}}</script>
+
+<script>var target=document.getElementById(location.hash.slice(1));target&&target.name&&(target.checked=target.name.startsWith("__tabbed_"))</script>
+        </div>
+        
+      </main>
+      
+        <footer class="md-footer">
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-copyright">
+  
+  
+    Made with
+    <a href="https://squidfunk.github.io/mkdocs-material/" target="_blank" rel="noopener">
+      Material for MkDocs
+    </a>
+  
+</div>
+      
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    <div class="md-dialog" data-md-component="dialog">
+      <div class="md-dialog__inner md-typeset"></div>
+    </div>
+    
+    
+    
+      
+      
+      <script id="__config" type="application/json">{"annotate": null, "base": "..", "features": ["content.code.copy", "content.tabs.link", "navigation.tabs"], "search": "../assets/javascripts/workers/search.2c215733.min.js", "tags": null, "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}, "version": null}</script>
+    
+    
+      <script src="../assets/javascripts/bundle.79ae519e.min.js"></script>
+      
+    
+  </body>
+</html>
