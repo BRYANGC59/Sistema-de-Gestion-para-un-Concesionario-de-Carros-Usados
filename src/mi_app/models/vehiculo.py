@@ -1,13 +1,10 @@
+from sqlmodel import SQLModel, Field, Column, String
 from typing import Optional
-
-from sqlmodel import SQLModel, Field, Session, create_engine, select
-from pydantic import field_validator
 from enum import Enum
-from src.mi_app.exceptions import PrecioInvalidoError
+from pydantic import field_validator
 
 
-class EstadoVehiculo(Enum):
-    """Representa los posibles estados de un vehículo en el inventario."""
+class EstadoVehiculo(str, Enum):
     DISPONIBLE = "Disponible"
     RESERVADO = "Reservado"
     VENDIDO = "Vendido"
@@ -15,13 +12,17 @@ class EstadoVehiculo(Enum):
 
 class Vehiculo(SQLModel, table=True):
     id: Optional[int] = Field(default=None, primary_key=True)
-    marca: str = Field(index=True)
+    marca: str
     modelo: str
     anio: int
     kilometraje: int
     precio: int
     color: Optional[str] = None
-    estado: EstadoVehiculo = Field(default=EstadoVehiculo.DISPONIBLE)
+
+    estado: EstadoVehiculo = Field(
+        default=EstadoVehiculo.DISPONIBLE,
+        sa_column=Column(String(20))
+    )
 
     @field_validator("precio")
     @classmethod

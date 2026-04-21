@@ -1,3 +1,5 @@
+import os
+from dotenv import load_dotenv
 from fastapi import FastAPI, Depends, HTTPException
 from sqlmodel import Session, select, SQLModel, create_engine
 from typing import List
@@ -5,11 +7,14 @@ from src.mi_app.models.vehiculo import Vehiculo, EstadoVehiculo
 from src.mi_app.models.cliente import Cliente
 from src.mi_app.models.venta import Venta
 
+load_dotenv()
+DATABASE_URL = os.getenv("DATABASE_URL")
 
-DATABASE_URL = "postgresql://postgres.qqhkitoofvgvtjwmymqs:brymardey123@aws-1-us-east-2.pooler.supabase.com:5432/postgres"
+if DATABASE_URL is None:
+    raise ValueError("¡Falta la variable DATABASE_URL en el archivo .env!")
+
 engine = create_engine(DATABASE_URL)
 
-# 2. Inicializar FastAPI
 app = FastAPI(
     title="API Concesionario",
     description="Sistema de gestión de vehículos usados",
@@ -38,6 +43,10 @@ def agregar_vehiculo(vehiculo: Vehiculo, session: Session = Depends(get_session)
     session.commit()
     session.refresh(vehiculo) # Refresca para obtener el ID generado por la base de datos
     return vehiculo
+
+@app.get("/", tags=["Inicio"])
+def mensaje_bienvenida():
+    return {"mensaje": "¡Bienvenido a la API del Concesionario! Ve a /docs para ver la documentación."}
 
 @app.get("/vehiculos/disponibles", response_model=List[Vehiculo], tags=["Inventario"])
 def listar_disponibles(session: Session = Depends(get_session)):
