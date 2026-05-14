@@ -8,11 +8,11 @@ class EstadoVehiculo(str, Enum):
     VENDIDO = "Vendido"
 
 class VehiculoBase(BaseModel):
-    marca: str
-    modelo: str
-    anio: int = Field(gt=1990)
-    kilometraje: int = Field(ge=0)
-    precio: int = Field(gt=0)
+    marca: str = Field(..., min_length=2, max_length=50)
+    modelo: str = Field(..., min_length=1)
+    anio: int = Field(..., gt=1990, lt=2027)
+    kilometraje: int = Field(..., ge=0)
+    precio: int = Field(..., gt=0)
     color: Optional[str] = None
     estado: EstadoVehiculo = EstadoVehiculo.DISPONIBLE
 
@@ -21,3 +21,6 @@ class VehiculoCreate(VehiculoBase):
 
 class VehiculoResponse(VehiculoBase):
     id: int
+
+    class Config:
+        from_attributes = True
