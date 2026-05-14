@@ -1,5 +1,5 @@
 from typing import List
-from src.mi_app.models.vehiculo import VehiculoUsado, EstadoVehiculo
+from api.storage.models import VehiculoUsado, EstadoVehiculo
 from src.mi_app.storage import cargar_datos, guardar_datos
 from src.mi_app.exceptions import (
     VehiculoNoEncontradoError,

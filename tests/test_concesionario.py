@@ -1,6 +1,6 @@
 import pytest
 from src.mi_app.services import InventarioService
-from src.mi_app.models import EstadoVehiculo
+from api.storage.models import EstadoVehiculo
 from src.mi_app.exceptions import (
     VehiculoNoEncontradoError,
     VehiculoYaVendidoError,
